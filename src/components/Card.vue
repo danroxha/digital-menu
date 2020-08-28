@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     ingredientes(){
-      return this.item.ingredientes.join(' ')
+      return this.item.ingredientes.join(',')
     },
   },
 
