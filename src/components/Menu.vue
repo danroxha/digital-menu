@@ -48,25 +48,20 @@ export default {
       return obj
     },
 
-    parseData(data){
-      return data.feed.entry
-        .map(
-          value => this.toJSON(
-            value.content.$t
-              .replace(/:\s/ig, ':')
-              .replace(/;\s/ig, '|')
-              .replace(/,\s/ig, ' ')
-              .replace(/:/ig, ' ')
-              .split(' ')
+    parseData({feed}){
+      return feed.entry
+        .map(value => this.toJSON(
+          value.content.$t
+            .replace(/:\s?/ig, '|')
+            .split(/,\s/ig)
+            .map(value => value.split('|')).flat()
           )
         )
-        .map(item => (
-          {
-            ...item,
-            nome: item.nome.replace(/_/ig, ' '),
-            ingredientes: item.ingredientes?.replace(/_/ig, ' ')?.split('|')
-          }
-        ))
+        .map(value => ({
+          ...value,
+          ingredientes: value.ingredientes.split(';') 
+        }))
+      
     },
   },
 
@@ -88,14 +83,12 @@ export default {
 #container{
   display: grid;
   height: 100vh;
-  grid-template-rows: auto auto auto;
+  /* grid-template-rows: auto auto auto; */
   /* grid-template-rows: repeat(3, 1fr); */
+  grid-template-rows: .3fr 1fr .15fr;
   box-sizing: border-box;
 }
 #container section{
-  height: 95%;
   overflow-y: auto;
-  /* margin-top: 20px; */
-  /* margin-bottom: 20px; */
 }
 </style>
