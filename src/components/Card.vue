@@ -29,7 +29,15 @@ export default {
   },
   computed: {
     ingredientes(){
-      return this.item.ingredientes.join(',')
+      
+      var i = this.item.ingredientes
+      // console.log(this.ite.ingredientes)
+      if(this.item.ingredientes.length > 4){
+        i = i.slice(0,3)
+        i.push('...')
+      }
+
+      return i.join(', ')
     },
   },
 
