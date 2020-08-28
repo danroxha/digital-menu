@@ -1,6 +1,6 @@
 <template>
   <header id='header'>
-    <h1>Pizza's Sr. Colosso</h1>
+    <h1>Pizzaria Colosso</h1>
     <img src='https://fakeimg.pl/300/'>
   </header>
 
@@ -14,13 +14,16 @@ export default {
 #header {
   background-color: var(--_color_1);
   display: flex;
-  height: 100px;
+  height: 100%;
   justify-content: space-between;
 }
 #header h1 {
   display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
   align-items: center;
-  font-size: 1.7em;
+  font-size: 3.5em;
   color: var(--_color_0);
   font-style: italic;
 }
