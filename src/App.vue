@@ -10,6 +10,7 @@ import Menu from './components/Menu'
 
 export default {
   name: 'app',
+  title: 'Pizza Colosso',
   components: {
     Menu
   }
@@ -35,7 +36,7 @@ a {
 }
 body {
   padding: 0;
-  height: 100vh;
+  min-height: 100%;
   background-color: var(--_color_4);
 }
 </style>
