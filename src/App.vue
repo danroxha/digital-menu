@@ -24,6 +24,7 @@ export default {
   --_color_0: #ffffff;
   --_color_1: #f9d125;
   --_color_2: #3ed979;
+  --_color_2_1: #30af61;
   --_color_3: #9a1511;
   --_color_4: #edf1f0;
   --_color_5: #c2c2c2;
