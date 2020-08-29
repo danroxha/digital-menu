@@ -83,12 +83,19 @@ export default {
 #container{
   display: grid;
   height: 100vh;
-  /* grid-template-rows: auto auto auto; */
-  /* grid-template-rows: repeat(3, 1fr); */
   grid-template-rows: .3fr 1fr .15fr;
   box-sizing: border-box;
 }
 #container section{
   overflow-y: auto;
+  margin: 0 auto;
+}
+
+@media only screen and (min-width: 800px) {
+  #container section{
+    /* overflow-y: auto; */
+    margin: 0 auto;
+    max-width: 80%;
+  }
 }
 </style>
