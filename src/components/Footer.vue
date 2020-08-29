@@ -2,8 +2,8 @@
   <footer id='footer'>
     <div>
       <a :href='"https://wa.me/"+phone'><WhatsappIcon /></a>
-      <a href=''><InstagramIcon /></a>
-      <a href=''><PhoneIcon /></a>
+      <a href='https://www.instagram.com/pizzariacolosso/?igshid=1h7f4x1saumts' target='_blank'><InstagramIcon /></a>
+      <a :href='"tel:"+phone'><PhoneIcon /></a>
     </div>
     <div>
       <span>
