@@ -1,6 +1,7 @@
 <template>
   <li class='card'>
-    <img src='https://fakeimg.pl/300/'>
+    <!-- <img src='https://fakeimg.pl/300/'> -->
+    <img :src='image'>
     <div>
       <h3>{{item.nome}}</h3>
       <span>
@@ -27,12 +28,19 @@ export default {
   components: {
     WhatsappIcon
   },
+
+  data(){
+    return {
+      image: 'https://wonkywonderful.com/wp-content/uploads/2015/09/english-muffin-mini-pizzas-4.jpg',
+    }
+  },
+  
   computed: {
     ingredientes(){
       
       var i = this.item.ingredientes
-      // console.log(this.ite.ingredientes)
-      if(this.item.ingredientes.length > 4){
+      const ITEM_LIMIT = 4
+      if(this.item.ingredientes.length > ITEM_LIMIT){
         i = i.slice(0,3)
         i.push('...')
       }
@@ -67,15 +75,17 @@ export default {
 }
 .card div:nth-child(2){
   margin: 0 10px;
+  padding: 10px 0;
   display: grid;
+  min-height: 100px;
   grid-template-rows: 30% 50% 20%;
 }
 .card div:nth-child(2) h3 {
   color: var(--_color_3);
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 .card div:nth-child(2) span:nth-child(2) {
-  padding-top: 5px;
+  /* padding-top: 5px; */
   color: var(--_color_5);
   font-weight: bold;
   font-size: .9em;
@@ -96,6 +106,9 @@ export default {
   font-weight: bold;
   margin: 0;
 }
+.card a {
+  outline: none;
+}
 .card a:nth-child(3) span {
   font-size: 10pt;
 }
@@ -106,5 +119,20 @@ export default {
   align-self: center;
   font-size: 30pt;
 }
+
+.card a:active {
+  background-color: var(--_color_2_1);
+}
+
+@media only screen and (max-width: 600px) {
+}
+
+@media only screen and (max-width: 320px) {
+  .card div:nth-child(2) h3 {
+    color: var(--_color_3);
+    font-size: 1.1em;
+  }
+}
+
 
 </style>
