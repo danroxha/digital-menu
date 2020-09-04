@@ -59,7 +59,8 @@ export default {
         )
         .map(value => ({
           ...value,
-          ingredientes: value.ingredientes.split(';') 
+          ingredientes: value.ingredientes.split(';'),
+          imagem: `https://${value.imagem}` 
         }))
       
     },
@@ -73,6 +74,7 @@ export default {
     this.items = await fetch(url)
       .then(async request => this.parseData(await request.json()))
 
+    console.log(this.items)
   }
 }
 

@@ -1,7 +1,7 @@
 <template>
   <li class='card'>
     <!-- <img src='https://fakeimg.pl/300/'> -->
-    <img :src='image'>
+    <img :src='item.imagem'>
     <div>
       <h3>{{item.nome}}</h3>
       <span>
