@@ -83,7 +83,7 @@ export default {
 #container{
   display: grid;
   height: 100vh;
-  grid-template-rows: .3fr 1fr .15fr;
+  grid-template-rows: .11fr 1fr .15fr;
   box-sizing: border-box;
 }
 #container section{
