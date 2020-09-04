@@ -1,9 +1,11 @@
 <template>
   <header id='header'>
+    <a href="https://pizzariacolosso.github.io/home/" target="_blank">
     <h1>Menu Colosso</h1>
     <!-- <img src='https://fakeimg.pl/300/'> -->
     <img src="https://avatars0.githubusercontent.com/u/70414481?s=200&v=4"/>
     <!-- <LogoIcon/> -->
+    </a>
   </header>
 
 </template>
@@ -18,14 +20,14 @@ export default {
 </script>
 <style>
 
-#header {
+#header a {
   background-color: var(--_color_3);
   display: grid;
   grid-template-columns: 70% 30%;
   height: 100%;
   justify-content: space-between;
 }
-#header h1 {
+#header a h1 {
   display: flex;
   justify-content: center;
   text-align: center;
@@ -36,13 +38,13 @@ export default {
   font-style: italic;
   /*text-shadow: 2px 2px 2px #000;*/
 }
-#header img {
+#header a img {
   width: 80px; 
   height: 80px;
 }
 
 @media only screen and (max-width: 600px) {
-  #header h1 {
+  #header a h1 {
     font-size: 2em;
   }
 }
