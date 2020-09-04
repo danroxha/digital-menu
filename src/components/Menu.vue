@@ -2,9 +2,12 @@
   <main id='container'>
     <Header></Header>
     <section>
-      <ul>
+      <ul v-if='items.length' >
         <Card v-for='item in items' :key='item.nome' :item='item' :phone='phone' />
       </ul>
+      <div v-else>
+        <Loading />
+      </div>
     </section>
     <Footer :phone='phone'></Footer>
   </main>
@@ -15,12 +18,14 @@
 import Header from './Header'
 import Footer from './Footer'
 import Card from './Card'
+import Loading from './Loading'
 
 export default {
   components: {
     Header,
     Footer,
     Card,
+    Loading,
   },
 
   data(){
