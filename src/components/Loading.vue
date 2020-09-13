@@ -15,7 +15,7 @@ export default { }
 
 <style>
 .pizza {
-  position: absolute;
+  position: fixed;
   margin: auto;
   top: 0;
   right: 0;
@@ -26,7 +26,7 @@ export default { }
   background-color: #FFB10B;
   border-radius: 50%;
   box-shadow: 0 0 10px 8px rgba(0, 0, 0, 0.4);
-    animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 .pizza:before {
@@ -138,6 +138,64 @@ export default { }
 @keyframes spin {
   100% {
     transform: rotate(360deg);
+  }
+}
+/* @media screen and (max-width: 300px){
+
+} */
+
+@media screen and (orientation: landscape){
+  .pizza {
+    height: 200px;
+    width: 200px;
+  }
+
+  .pizza:before {
+    height: 170px;
+    width: 170px;
+  }
+
+  .pizza:after {
+    border-radius: 50%;
+    height: 140px;
+    width: 140px;
+  }
+
+  .pepperoni {
+    height: 15px;
+    width: 15px;
+    box-shadow: 
+      -40px -40px 0 0 #C4272C,
+      0px -55px 0 0 #C4272C,
+      -10px -20px 0 0 #C4272C,
+      -50px -10px 0 0 #C4272C,
+      40px -40px 0 0 #C4272C,
+      -60px 10px 0 0 #C4272C,
+      50px 20px 0 0 #C4272C,
+      -30px 50px 0 0 #C4272C,
+      10px 10px 0 0 #C4272C,
+      30px 48px 0 0 #C4272C,
+      15px -20px 0 0 #C4272C;
+  }
+
+  .mushrooms {
+    height: 15px;
+    width: 30px;
+    border-radius: 10px;
+    background-color: tranparent;
+
+    box-shadow: 
+    -40px -40px 0 0 #4C5B5C,
+    0px -55px 0 0 #4C5B5C,
+    -10px -20px 0 0 #4C5B5C,
+    -50px -10px 0 0 #4C5B5C,
+    40px -40px 0 0 #4C5B5C,
+    -60px 10px 0 0 #4C5B5C,
+    50px 20px 0 0 #4C5B5C,
+    -30px 50px 0 0 #4C5B5C,
+    10px 10px 0 0 #4C5B5C,
+    30px 48px 0 0 #4C5B5C,
+    15px -20px 0 0 #4C5B5C;
   }
 }
 
