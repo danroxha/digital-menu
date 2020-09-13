@@ -28,6 +28,7 @@ export default {
   --_color_3: #9a1511;
   --_color_4: #edf1f0;
   --_color_5: #c2c2c2;
+  --_color_6: #000000;
   box-sizing: border-box;
   font-family: sans-serif;
   max-height: inherit;
