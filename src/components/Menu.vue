@@ -3,10 +3,12 @@
     <Header></Header>
     <section>
       <ul v-if='items.length' >
-        <Card v-for='item in items' :key='item.nome' :item='item' :phone='phone' />
+        <Card v-for='item in items' :key='item.nome' :item='item' :phone='phone'/>
       </ul>
-      <div v-else>
-        <Loading />
+
+      <Loading v-else/>
+      <div v-if='overviewItem'>
+        <ItemInformation :item="items[0]"/>
       </div>
     </section>
     <Footer :phone='phone'></Footer>
@@ -19,6 +21,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Card from './Card'
 import Loading from './Loading'
+import ItemInformation from './ItemInformation'
 
 export default {
   components: {
@@ -26,6 +29,7 @@ export default {
     Footer,
     Card,
     Loading,
+    ItemInformation,
   },
 
   data(){
@@ -33,6 +37,7 @@ export default {
       title: 'Pizza',
       phone: '+5598988998019',
       items: [],
+      overviewItem: true,
     }
   },
 
@@ -81,6 +86,11 @@ export default {
         }))
       
     },
+
+    overviewEnable(){
+      console.log(this);
+    },
+
   },
 
   async mounted(){
@@ -91,7 +101,6 @@ export default {
     this.items = await fetch(url)
       .then(async request => this.parseData(await request.json()))
 
-    console.log(this.items)
   }
 }
 
@@ -106,13 +115,13 @@ export default {
   box-sizing: border-box;
 }
 #container section{
+  position: relative;
   overflow-y: auto;
   margin: 0 auto;
 }
 
 @media only screen and (min-width: 800px) {
   #container section{
-    /* overflow-y: auto; */
     margin: 0 auto;
     max-width: 80%;
   }
