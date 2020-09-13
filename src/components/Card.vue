@@ -66,6 +66,7 @@ export default {
   display: grid;
   grid-template-columns: 20% 65% 15%;
   margin: 10px 15px;
+  cursor: pointer;
 }
 
 .card img{
