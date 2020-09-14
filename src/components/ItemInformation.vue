@@ -1,8 +1,8 @@
 <template>
   <div class='pop-info'>
     <header>
-      <ArrowBackIcon></ArrowBackIcon>
-      <span>Detalhes do Item</span>
+      <ArrowBackIcon @click="closePopUp"></ArrowBackIcon>
+      <span >Detalhes do Item</span>
     </header>
     <section>
       <div>
@@ -27,10 +27,10 @@
   </div>
 </template>
 <script>
-import ArrowBackIcon from "../icons/ArrowBackIcon";
+import ArrowBackIcon from "../icons/ArrowBackIcon"
+import { mapMutations, mapState } from 'vuex'
 
 export default {
-  props: ['item'],
   components: {
     ArrowBackIcon,
   },
@@ -40,8 +40,14 @@ export default {
       quantity: 1,
     }
   },
-
+  computed: {
+    ...mapState({
+      item: state => state.information
+    })
+  },
   methods: {
+    ...mapMutations(['openPopUp', 'closePopUp']),
+
     handleTheQuantityOfItems() {
       console.log(this.quantity)
     },
@@ -49,6 +55,7 @@ export default {
     computedPrice(price) {
       return (parseFloat(price) * this.quantity).toFixed(2)
     },
+
   },
 };
 </script>

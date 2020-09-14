@@ -1,8 +1,8 @@
 <template>
   <li class='card'>
     <!-- <img src='https://fakeimg.pl/300/'> -->
-    <img :src='item.imagem'>
-    <div>
+    <img @click.prevent='openPopUp(item)' :src='item.imagem'>
+    <div @click.prevent='openPopUp(item)'>
       <h3>{{item.nome}}</h3>
       <span>
         {{ingredientes}}
@@ -22,6 +22,7 @@
 
 <script>
 import WhatsappIcon from '../icons/WhatsappIcon'
+import { mapMutations}  from 'vuex'
 
 export default {
   props: ['item', 'phone'],
@@ -31,6 +32,7 @@ export default {
 
   data(){
     return {
+      // item: null,
       image: 'https://wonkywonderful.com/wp-content/uploads/2015/09/english-muffin-mini-pizzas-4.jpg',
     }
   },
@@ -50,10 +52,11 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['openPopUp']),
     genereteMessage(item){
       let message = encodeURI(`Olá, gostaria de pedir: *${item.nome}*`)
       return `https://wa.me/${this.phone}?text=${message}`
-    }
+    },
   }
 
 }

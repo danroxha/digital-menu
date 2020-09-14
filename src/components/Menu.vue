@@ -7,8 +7,8 @@
       </ul>
 
       <Loading v-else/>
-      <div v-if='overviewItem'>
-        <ItemInformation :item="items[0]"/>
+      <div v-if='isVisible'>
+        <ItemInformation />
       </div>
     </section>
     <Footer :phone='phone'></Footer>
@@ -22,6 +22,7 @@ import Footer from './Footer'
 import Card from './Card'
 import Loading from './Loading'
 import ItemInformation from './ItemInformation'
+import { mapState } from 'vuex'
 
 export default {
   components: {
@@ -37,8 +38,13 @@ export default {
       title: 'Pizza',
       phone: '+5598988998019',
       items: [],
-      overviewItem: true,
-    }
+    } 
+  },
+
+  computed: {
+    ...mapState({
+      isVisible: state => state.isVisible
+    })
   },
 
   methods: {
@@ -88,7 +94,7 @@ export default {
     },
 
     overviewEnable(){
-      console.log(this);
+      // console.log(this);
     },
 
   },
@@ -100,6 +106,8 @@ export default {
     
     this.items = await fetch(url)
       .then(async request => this.parseData(await request.json()))
+
+    // console.log(this.isVisible)
 
   }
 }
