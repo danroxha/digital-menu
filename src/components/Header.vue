@@ -8,20 +8,21 @@
     </a>
   </header>
   <header v-else id='header-map'>
-    <DrinkIcon />
-    <HamburguerIcon />
     <PizzaIcon />
-    <BasketIcon/>
+    <HamburguerIcon />
+    <DrinkIcon />
+    <div class='basket-icon'>
+      <BasketIcon/>
+      <span>0</span>
+    </div>
   </header>
 
 </template>
 <script>
-// import LogoIcon from '../icons/LogoIcon'
 import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '../icons/mod.js'
 
 export default {
   components: {
-    // LogoIcon
     BasketIcon,
     DrinkIcon,
     HamburguerIcon,
@@ -32,7 +33,46 @@ export default {
 <style>
 
 #header-map{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   background: var(--_color_0);
+  font-size: 30pt;
+  box-shadow: 1px 1px 5px #000;
+  z-index: 1;
+}
+
+#header-map svg {
+  color: var(--_color_5);
+  cursor: pointer;
+  transition: 300ms;
+}
+
+#header-map svg:hover {
+  color: var(--_color_6);
+}
+
+.basket-icon {
+  margin: 0;
+  position: relative;
+  padding-top: 10px;
+
+}
+.basket-icon span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--_color_3);
+  color: var(--_color_0);
+  border-radius: 80%;
+  font-size: 10pt;
+  font-weight: bold;
+
 }
 
 #header a {
