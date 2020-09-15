@@ -86,6 +86,8 @@ export default {
   transform: translateX(-50%) translateY(-50%);
   padding-bottom: 20px;
   box-shadow: 2px 4px 20px 2px var(--_color_6);
+  z-index: 2;
+
 }
 
 .pop-info header {
