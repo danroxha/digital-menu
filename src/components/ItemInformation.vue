@@ -27,7 +27,7 @@
   </div>
 </template>
 <script>
-import ArrowBackIcon from "../icons/ArrowBackIcon"
+import { ArrowBackIcon } from "../icons/mod.js"
 import { mapMutations, mapState } from 'vuex'
 
 export default {

@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import WhatsappIcon from '../icons/WhatsappIcon'
+import { WhatsappIcon } from '../icons/mod.js'
 import { mapMutations}  from 'vuex'
 
 export default {
@@ -32,7 +32,6 @@ export default {
 
   data(){
     return {
-      // item: null,
       image: 'https://wonkywonderful.com/wp-content/uploads/2015/09/english-muffin-mini-pizzas-4.jpg',
     }
   },

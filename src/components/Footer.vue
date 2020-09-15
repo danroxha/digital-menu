@@ -13,9 +13,8 @@
   </footer>
 </template>
 <script>
-import WhatsappIcon from '../icons/WhatsappIcon'
-import InstagramIcon from '../icons/InstagramIcon'
-import PhoneIcon from '../icons/PhoneIcon'
+import { WhatsappIcon, InstagramIcon, PhoneIcon } from '../icons/mod.js'
+
 
 export default {
   components: {

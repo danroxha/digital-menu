@@ -1,5 +1,5 @@
 <template>
-  <header id='header'>
+  <header v-if='false' id='header'>
     <a href="https://pizzariacolosso.github.io/home/" target="_blank">
     <h1>Menu Colosso</h1>
     <!-- <img src='https://fakeimg.pl/300/'> -->
@@ -7,18 +7,33 @@
     <!-- <LogoIcon/> -->
     </a>
   </header>
+  <header v-else id='header-map'>
+    <DrinkIcon />
+    <HamburguerIcon />
+    <PizzaIcon />
+    <BasketIcon/>
+  </header>
 
 </template>
 <script>
 // import LogoIcon from '../icons/LogoIcon'
+import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '../icons/mod.js'
 
 export default {
   components: {
     // LogoIcon
+    BasketIcon,
+    DrinkIcon,
+    HamburguerIcon,
+    PizzaIcon
   },
 }
 </script>
 <style>
+
+#header-map{
+  background: var(--_color_0);
+}
 
 #header a {
   background-color: var(--_color_3);
