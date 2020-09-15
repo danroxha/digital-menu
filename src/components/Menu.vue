@@ -131,7 +131,7 @@ export default {
 @media only screen and (min-width: 800px) {
   #container section{
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 100%;
   }
 }
 </style>

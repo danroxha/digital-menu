@@ -142,6 +142,7 @@ export default {
   font-size: 11pt;
   outline: none;
   cursor: pointer;
+  overflow-x: auto;
 }
 
 .pop-info section form input[type="button"] {
@@ -170,6 +171,9 @@ export default {
     /* max-height: 200px; */
     /* overflow-x: auto; */
     /* height: 100%; */
+  }
+  .pop-info section form input {
+    font-size: 10pt;
   }
 } 
 /* 
