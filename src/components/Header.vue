@@ -8,9 +8,9 @@
     </a>
   </header>
   <header v-else id='header-map'>
-    <PizzaIcon />
-    <HamburguerIcon />
-    <DrinkIcon />
+    <a href='#pizza' class='disable'><PizzaIcon /></a>
+    <a href='#hamburguer' class='disable'><HamburguerIcon /></a>
+    <a href='#drink' class='disable'><DrinkIcon /></a>
     <div class='basket-icon'>
       <BasketIcon/>
       <span>0</span>
@@ -22,11 +22,26 @@
 import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '../icons/mod.js'
 
 export default {
+  data: () => ({
+    hash: location.hash,
+    enable: false,
+    disable: true,
+  }),
+
   components: {
     BasketIcon,
     DrinkIcon,
     HamburguerIcon,
     PizzaIcon
+  },
+
+  computed: {
+    active(){
+      return {
+        enable: this.enable,
+        disable: this.disable
+      }
+    }
   },
 }
 </script>
@@ -40,15 +55,18 @@ export default {
   font-size: 30pt;
   box-shadow: 1px 1px 5px #000;
   z-index: 1;
-}
-
-#header-map svg {
-  color: var(--_color_5);
-  cursor: pointer;
   transition: 300ms;
 }
 
 #header-map svg:hover {
+  color: var(--_color_6);
+}
+
+.disable svg {
+  color: var(--_color_5);
+}
+
+.enable svg {
   color: var(--_color_6);
 }
 

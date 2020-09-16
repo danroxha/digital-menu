@@ -1,3 +1,10 @@
-// export { store} from './itemInformation/storeItemInformation.js'
+import Vue from 'vue'
+import Vuex from 'vuex'
 
-// import { store;}
+Vue.use(Vuex)
+
+export default Vuex.Store({
+  modules:{
+    
+  }
+})

@@ -32,6 +32,7 @@ export default {
   box-sizing: border-box;
   font-family: sans-serif;
   max-height: inherit;
+  scroll-behavior: smooth;
 }
 a {
   text-decoration: none;

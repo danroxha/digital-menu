@@ -1,7 +1,7 @@
 <template>
   <li class='card'>
     <!-- <img src='https://fakeimg.pl/300/'> -->
-    <img @click.prevent='openPopUp(item)' :src='item.imagem'>
+    <img @click.prevent='openPopUp(item)' :src='item.imagem' loading='lazy'>
     <div @click.prevent='openPopUp(item)'>
       <h3>{{item.nome}}</h3>
       <span>

@@ -1,12 +1,15 @@
 <template>
   <main id='container'>
     <Header></Header>
-    <section>
-      <ul v-if='items.length' >
-        <Card v-for='item in items' :key='item.nome' :item='item' :phone='phone'/>
-      </ul>
-
-      <Loading v-else/>
+    <section @scroll="scrollChange">
+      <div v-if='Object.entries(items).length'>
+        <ul v-for='(_, group) in items' :key='_'>
+          <h3 class='title-group' :id='group'>{{ group }}</h3>
+          <Card v-for='item in items[group]' :key='item.nome' :item='item' :phone='phone'/>
+        </ul>
+      </div>
+      <Loading v-else />
+      
       <div v-if='isVisible'>
         <ItemInformation />
       </div>
@@ -61,7 +64,7 @@ export default {
       return obj
     },
 
-    separateDataIntoGroups(data){
+    joinInGroups(data){
       
       let group = new Object()
       
@@ -93,9 +96,9 @@ export default {
       
     },
 
-    overviewEnable(){
-      // console.log(this);
-    },
+   scrollChange($event){
+     console.log($event.target.scrollTop)
+   }
 
   },
 
@@ -105,9 +108,9 @@ export default {
     const url = `https://spreadsheets.google.com/feeds/list/${id}/1/public/basic?alt=json`
     
     this.items = await fetch(url)
-      .then(async request => this.parseData(await request.json()))
+      .then(async request => this.joinInGroups(this.parseData(await request.json())))
 
-    // console.log(this.isVisible)
+    console.log(this.items)
 
   }
 }
@@ -116,6 +119,17 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+
+.title-group{
+  font-family: 'Cedarville Cursive', cursive;
+  font-size: 35pt;
+  text-transform: capitalize;
+  color: var(--_color_3);
+  font-weight: bold;
+  margin-left: 20px;
+}
+
 #container{
   display: grid;
   height: 100vh;
