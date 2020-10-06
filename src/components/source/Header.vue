@@ -1,13 +1,12 @@
 <template>
-  <header v-if='false' id='header'>
+  <!-- <header v-if='true' id='header'>
     <a href="https://pizzariacolosso.github.io/home/" target="_blank">
     <h1>Menu Colosso</h1>
-    <!-- <img src='https://fakeimg.pl/300/'> -->
     <img src="https://avatars0.githubusercontent.com/u/70414481?s=200&v=4"/>
-    <!-- <LogoIcon/> -->
     </a>
-  </header>
-  <header v-else id='header-map'>
+  </header> -->
+
+  <header id='header-map'>
     <a href='#pizza' class='disable'><PizzaIcon /></a>
     <a href='#hamburguer' class='disable'><HamburguerIcon /></a>
     <a href='#drink' class='disable'><DrinkIcon /></a>
@@ -16,37 +15,19 @@
       <span>0</span>
     </div>
   </header>
-
 </template>
 <script>
-import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '../icons/mod.js'
+import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '@/icons'
 
 export default {
-  data: () => ({
-    hash: location.hash,
-    enable: false,
-    disable: true,
-  }),
-
   components: {
-    BasketIcon,
-    DrinkIcon,
-    HamburguerIcon,
-    PizzaIcon
-  },
-
-  computed: {
-    active(){
-      return {
-        enable: this.enable,
-        disable: this.disable
-      }
-    }
-  },
+    BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon,
+  }
 }
-</script>
-<style>
 
+</script>
+
+<style scoped>
 #header-map{
   display: flex;
   justify-content: space-evenly;

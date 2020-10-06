@@ -1,71 +1,66 @@
 <template>
-  <div class='pop-info'>
+  <div class="pop-info">
     <header>
       <ArrowBackIcon @click="closePopUp"></ArrowBackIcon>
-      <span >Detalhes do Item</span>
+      <span>Detalhes do Item</span>
     </header>
     <section>
       <div>
         <figure>
-          <img draggable='false' :src="item.imagem" />
+          <img draggable="false" :src="data.imagem" />
         </figure>
-        <h3>{{item.nome}}</h3>
-        <span>{{item.ingredientes.join(',')}}</span>
+        <h3>{{ data.nome }}</h3>
+        <span>{{ data.ingredientes.join(",") }}</span>
         <br />
-        <span class='price'>R$ {{item.preco}}</span>
+        <span class="price">R$ {{ data.preco }}</span>
         <br />
       </div>
       <form>
-        <input min='1' max='10' type='number' name v-model='quantity' />
+        <input min="1" max="10" type="number" name v-model="quantity" />
         <input
           v-on:click="handleTheQuantityOfItems"
-          type='button'
-          :value='"Adicionar R$ " + computedPrice(item.preco)'
+          type="button"
+          :value="'Adicionar R$ ' + computedPrice(data.preco)"
         />
       </form>
     </section>
   </div>
 </template>
+
 <script>
-import { ArrowBackIcon } from "../icons/mod.js"
-import { mapMutations, mapState } from 'vuex'
-
+import { mapMutations, mapState } from 'vuex';
+import { ArrowBackIcon } from '@/icons'
 export default {
-  components: {
-    ArrowBackIcon,
-  },
-  data() {
-    return {
-      price: 0,
-      quantity: 1,
-    }
-  },
+  components: { ArrowBackIcon },
+  data: () => ({
+    quantity: 1,
+  }),
+
   computed: {
-    ...mapState({
-      item: state => state.information
-    })
+    ...mapState('popUp', ['data']),
+    
   },
+
   methods: {
-    ...mapMutations(['openPopUp', 'closePopUp']),
-
-    handleTheQuantityOfItems() {
-      console.log(this.quantity)
+    ...mapMutations('popUp', ['closePopUp']),
+    handleTheQuantityOfItems(){
+      
     },
-
     computedPrice(price) {
       return (parseFloat(price) * this.quantity).toFixed(2)
     },
-
-  },
+  }
 };
 </script>
 
-<style>
+<style scoped>
+
 .price {
   margin: 10px 0;
   font-family: 'Courier New';
   font-size: 18pt;
 }
+
 .pop-info {
   height: 100%;
   width: 100%;
@@ -102,9 +97,11 @@ export default {
   font-size: 20pt;
   float: left;
 }
+
 .pop-info section {
   height: 100%;
 }
+
 .pop-info section span {
   display: inline-block;
 }
@@ -120,6 +117,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 .pop-info section figure img {
   width: 70%;
   height: 70%;
@@ -178,6 +176,5 @@ export default {
     font-size: 10pt;
   }
 } 
-/* 
-*/
+
 </style>
