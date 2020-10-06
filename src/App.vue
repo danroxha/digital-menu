@@ -1,23 +1,30 @@
 <template>
-  <main id='container'>
-    <Menu></Menu>
-  </main>
+  <div id="app">
+    <Home />
+  </div>
 </template>
 
 <script>
-
-import Menu from './components/Menu'
+import Home from './pages/Home'
 
 export default {
-  name: 'app',
-  title: 'Pizza Colosso',
+  name: 'App',
   components: {
-    Menu
+    Home,
   }
 }
 </script>
 
 <style>
+/* #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+} */
+
 * {
   margin: 0;
   padding: 0;
@@ -34,13 +41,16 @@ export default {
   max-height: inherit;
   scroll-behavior: smooth;
 }
+
 a {
   text-decoration: none;
   outline: none;
 }
+
 body {
   padding: 0;
   min-height: 100%;
   background-color: var(--_color_4);
 }
+
 </style>
