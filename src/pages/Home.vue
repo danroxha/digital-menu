@@ -65,8 +65,8 @@ export default {
 #container section{
   position: relative;
   overflow-y: auto;
-  margin: 3px auto;
   width: 100%;
+  margin-top: 3.5px;
 }
 
 </style>
