@@ -1,27 +1,44 @@
 <template>
-  <!-- <header v-if='true' id='header'>
+  <div>
+  <header v-if='visible() && !volume()' id='header'>
     <a href="https://pizzariacolosso.github.io/home/" target="_blank">
     <h1>Menu Colosso</h1>
     <img src="https://avatars0.githubusercontent.com/u/70414481?s=200&v=4"/>
     </a>
-  </header> -->
-
-  <header id='header-map'>
+  </header>
+  <!-- <div>
+  </div> -->
+  <header v-else id='header-map'>
     <a href='#pizza' class='disable'><PizzaIcon /></a>
     <a href='#hamburguer' class='disable'><HamburguerIcon /></a>
     <a href='#drink' class='disable'><DrinkIcon /></a>
     <div class='basket-icon'>
       <BasketIcon/>
-      <span>0</span>
+      <span>{{volume()}}</span>
     </div>
   </header>
+  </div>
 </template>
+
 <script>
+import { mapState, mapActions, mapMutations } from 'vuex'
 import { BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon } from '@/icons'
 
 export default {
   components: {
     BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon,
+  },
+  methods: {
+    ...mapState('headerVisible', ['visible']),
+    ...mapState('shoppingBasket', ['volume', ]),
+    ...mapActions('shoppingBasket', ['loadShoppingBasket']),
+    ...mapMutations('shoppingBasket', ['setLocalStorage'])
+
+  },
+
+  async mounted(){
+    await this.setLocalStorage(localStorage)
+    await this.loadShoppingBasket()
   }
 }
 
@@ -55,6 +72,7 @@ export default {
   margin: 0;
   position: relative;
   padding-top: 10px;
+  cursor: pointer;
 
 }
 .basket-icon span {
