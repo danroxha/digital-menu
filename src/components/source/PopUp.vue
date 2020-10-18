@@ -18,7 +18,10 @@
       <form>
         <input min="1" max="10" type="number" name v-model="quantity" />
         <input
-          v-on:click="handleTheQuantityOfItems"
+          v-on:click="() => {
+            addItemToBasket({item: data, quantity })
+          }
+          "
           type="button"
           :value="'Adicionar R$ ' + computedPrice(data.preco)"
         />
@@ -43,13 +46,12 @@ export default {
 
   methods: {
     ...mapMutations('popUp', ['closePopUp']),
-    handleTheQuantityOfItems(){
-      
-    },
+    ...mapMutations('shoppingBasket', ['addItemToBasket']),
+    
     computedPrice(price) {
       return (parseFloat(price) * this.quantity).toFixed(2)
     },
-  }
+  },
 };
 </script>
 
