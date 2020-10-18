@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class='card-container'>
     <ul v-for='(key, group) in items' :key='key'>
       <h3 class='title-group' :id='group'>{{ group }}</h3>
       <li class="card" v-for='item in items[group]' :key='item.nome' :item='item'>
@@ -21,69 +21,15 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
-import { WhatsappIcon } from "@/icons";
+import { mapMutations, mapActions, mapState } from "vuex"
+import { WhatsappIcon } from "@/icons"
 
 export default {
   components: { WhatsappIcon },
-  data: () => ({
-    items: [],
-  }),
 
   methods: {
     ...mapMutations("popUp", ["openPopUp"]),
-    
-    async load(){
-
-      function toJSON(arr){
-            
-        let obj = {}
-        
-        for(let i = 0; i < arr.length; i++){
-          if(i % 2 == 0){
-            obj[arr[i]] = arr[i+1]
-          }
-        }
-        return obj
-      }
-
-      function joinInGroups(data){
-            
-        let group = new Object()
-        
-        for(var item of data){
-          if(!Object.prototype.hasOwnProperty.call(group, item?.group)){
-            group[item.group] = [item]
-            continue
-          }
-          group[item.group].push(item)
-        }
-
-        return group
-      }
-
-      function parseData({feed}){
-        return feed.entry
-          .map(value => toJSON(
-            value.content.$t
-              .replace(/:\s?/ig, '|')
-              .split(/,\s/ig)
-              .map(value => value.split('|')).flat()
-            )
-          )
-          .map(value => ({
-            ...value,
-            ingredientes: value.ingredientes.split(';'),
-            imagem: `https://${value.imagem}` 
-          })) 
-      }
-
-      const id = '1Hrhw7xC5NFxNyblD7aZ7afD1DFzHlSsQidav0e6Hshw'
-      const url = `https://spreadsheets.google.com/feeds/list/${id}/1/public/basic?alt=json`
-      
-      this.items = await fetch(url)
-        .then(async request => joinInGroups(parseData(await request.json())))
-    },
+    ...mapActions("menuItems", ['loadData']),
 
     genereteMessage(item){
       let message = encodeURI(`Olá, gostaria de pedir: *${item.nome}*`)
@@ -106,11 +52,11 @@ export default {
   },
 
   computed: {
-    // ...mapState("menuItems", ["items"]),
+    ...mapState("menuItems", ["items"]),
   },
 
   mounted(){
-    this.load()
+    this.loadData()
   },
 };
 
@@ -120,21 +66,27 @@ export default {
 
 .title-group{
   font-family: 'Cedarville Cursive', cursive;
-  font-size: 45pt;
+  font-size: 40pt;
   text-transform: capitalize;
   color: var(--_color_3);
   font-weight: bold;
   margin-left: 20px;
 }
+.card-container {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+}
 
 .card {
   max-height: 150px;
+  max-width: 800px;
   background-color: var(--_color_0);
   display: grid;
   grid-template-columns: 20% 65% 15%;
-  margin: 10px 15px;
+  margin: 10px 5px;
   cursor: pointer;
-  
+
 }
 
 .card img {
@@ -200,13 +152,20 @@ export default {
   background-color: var(--_color_2_1);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1300px) {
+  .card-container {
+    display: grid;
+  }
 }
 
 @media only screen and (max-width: 320px) {
+  .card-container {
+    /*background: yellow;*/
+  }
   .card div:nth-child(2) h3 {
     color: var(--_color_3);
     font-size: 1.1em;
   }
+
 }
 </style>
