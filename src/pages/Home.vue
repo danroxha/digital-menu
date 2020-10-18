@@ -2,10 +2,15 @@
   <main id='container'>
     <Header />
     <Container>
-      <Cards />
-      <div v-if='visible'>
-        <PopUp />
-      </div>
+      <section>
+        <Cards />
+        <div v-if='visible'>
+          <PopUp />
+        </div>
+      </section>
+      <section>
+        <Loading />
+      </section>
     </Container>
     <Footer />
   </main>
@@ -13,13 +18,13 @@
 <script>
 
 import { mapMutations, mapState } from 'vuex'
-import { Card as Cards, Container, Footer, Header, PopUp } from '@/components'
+import { Card as Cards, Container, Footer, Header, PopUp, Loading } from '@/components'
 
 
 export default {
   
   components: {
-    Cards, Container, Footer, Header, PopUp
+    Cards, Container, Footer, Header, PopUp, Loading
   },
 
   computed: {
@@ -60,14 +65,8 @@ export default {
 #container section{
   position: relative;
   overflow-y: auto;
-  margin: 0 auto;
-}
-
-@media only screen and (min-width: 800px) {
-  #container section{
-    margin: 0 auto;
-    max-width: 100%;
-  }
+  margin: 3px auto;
+  width: 100%;
 }
 
 </style>
