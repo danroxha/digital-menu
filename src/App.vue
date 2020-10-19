@@ -1,29 +1,23 @@
 <template>
   <div id="app">
-    <Home />
+    <router-view />
   </div>
 </template>
-
 <script>
-import Home from './pages/Home'
+import { mapMutations } from 'vuex'
+
 
 export default {
-  name: 'App',
-  components: {
-    Home,
+  methods: {
+    ...mapMutations('shoppingBasket', ['setLocalStorage']),
+  },
+  
+  async mounted(){
+    await this.setLocalStorage(localStorage)
   }
 }
 </script>
-
 <style>
-/* #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-} */
 
 * {
   margin: 0;
