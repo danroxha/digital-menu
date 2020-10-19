@@ -6,6 +6,7 @@ export default {
   
   state: {
     items: [],
+    isEmpty: true
   },
   
   mutations: {},
@@ -18,6 +19,8 @@ export default {
       
       state.items = await fetch(url)
         .then(async request => joinInGroups(parseData(await request.json())))
+
+      state.isEmpty = !!state.items.length
     },
   },
   gettets: {},

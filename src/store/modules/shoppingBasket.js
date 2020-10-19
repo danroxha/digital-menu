@@ -33,12 +33,18 @@ export default {
       state.volume = state.shoppingBasket.size
 
     },
+
+    removeAll(state) {
+      state.shoppingBasket.clear()
+      state.volume = state.shoppingBasket.size
+      LocalStorage.removeAll(state.setting)
+    },
     
-    removeItemFromBasket(state, itemName){
+    removeItemFromBasket(state, itemName) {
       state.shoppingBasket.delete(itemName)
     },
 
-    setLocalStorage(state, instance){
+    setLocalStorage(state, instance) {
       state.setting.localStorage = instance
     }
   },

@@ -13,5 +13,9 @@ export default class LocalStorage {
 
   static async updateAll(setting, data){
     setting.localStorage.setItem(setting.storage, Tools.MapToJSON(data))
-  } 
+  }
+
+  static async removeAll(setting) {
+    setting.localStorage.removeItem(setting.storage)
+  }
 }
