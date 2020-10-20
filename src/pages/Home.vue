@@ -8,7 +8,7 @@
           <PopUp />
         </div>
       </section>
-      <section>
+      <section v-show='isEmpty'>
         <Loading />
       </section>
     </Container>
@@ -28,7 +28,7 @@ export default {
   },
 
   computed: {
-    ...mapState('menuItems', ['items']),
+    ...mapState('menuItems', ['items', 'isEmpty']),
     ...mapState('popUp', ['visible']),
   },
   
@@ -36,9 +36,6 @@ export default {
     ...mapMutations('popUp', ['openPopUp']),
   },
   
-  mounted: () => {
-    // this.loadData()
-  }
 }
 </script>
 
