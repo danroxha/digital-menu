@@ -158,10 +158,16 @@ export default {
   }
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (min-width: 1300px) {
   .card-container {
-    /*background: yellow;*/
+    height: 77vh;
   }
+  .card-container ul {
+    overflow-y: auto;
+  }
+}
+
+@media only screen and (max-width: 320px) {
   .card div:nth-child(2) h3 {
     color: var(--_color_3);
     font-size: 1.1em;
