@@ -12,10 +12,10 @@
     <a href='#pizza' class='disable'><PizzaIcon /></a>
     <a href='#hamburguer' class='disable'><HamburguerIcon /></a>
     <a href='#drink' class='disable'><DrinkIcon /></a>
-    <div class='basket-icon'>
+    <a href='#/basket' class='basket-icon'>
       <BasketIcon/>
       <span>{{volume()}}</span>
-    </div>
+    </a>
   </header>
   </div>
 </template>
@@ -73,6 +73,8 @@ export default {
   position: relative;
   padding-top: 10px;
   cursor: pointer;
+  text-decoration: none;
+  color: var(--_color_6);
 
 }
 .basket-icon span {
@@ -91,6 +93,9 @@ export default {
   font-weight: bold;
 
 }
+#header {
+  height: 65px;
+}
 
 #header a {
   background-color: var(--_color_3);
@@ -108,16 +113,16 @@ export default {
   font-size: 3em;
   color: var(--_color_0);
   font-style: italic;
-  /*text-shadow: 2px 2px 2px #000;*/
 }
+
 #header a img {
-  width: 80px; 
-  height: 80px;
+  width: 65px; 
+  height: 65px;
 }
 
 @media only screen and (max-width: 600px) {
   #header a h1 {
-    font-size: 2em;
+    font-size: 1.5em;
   }
 }
 
