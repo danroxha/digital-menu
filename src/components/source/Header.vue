@@ -1,20 +1,18 @@
 <template>
   <div>
-  <header v-if='visible() && !volume()' id='header'>
+  <header v-if='visible  && !volume ' id='header'>
     <a href="https://pizzariacolosso.github.io/home/" target="_blank">
     <h1>Menu Colosso</h1>
     <img src="https://avatars0.githubusercontent.com/u/70414481?s=200&v=4"/>
     </a>
   </header>
-  <!-- <div>
-  </div> -->
   <header v-else id='header-map'>
     <a href='#pizza' class='disable'><PizzaIcon /></a>
     <a href='#hamburguer' class='disable'><HamburguerIcon /></a>
     <a href='#drink' class='disable'><DrinkIcon /></a>
     <a href='#/basket' class='basket-icon'>
       <BasketIcon/>
-      <span>{{volume()}}</span>
+      <span>{{ volume }}</span>
     </a>
   </header>
   </div>
@@ -29,11 +27,14 @@ export default {
     BasketIcon, DrinkIcon, HamburguerIcon, PizzaIcon,
   },
   methods: {
-    ...mapState('headerVisible', ['visible']),
-    ...mapState('shoppingBasket', ['volume', ]),
     ...mapActions('shoppingBasket', ['loadShoppingBasket']),
     ...mapMutations('shoppingBasket', ['setLocalStorage'])
 
+  },
+
+  computed: {
+    ...mapState('headerVisible', ['visible']),
+    ...mapState('shoppingBasket', ['volume', ]),
   },
 
   async mounted(){
