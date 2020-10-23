@@ -1,5 +1,6 @@
 <template>
   <svg 
+    @click='$emit("click")'
     stroke="currentColor" 
     fill="currentColor" 
     stroke-width="0" 
