@@ -6,19 +6,17 @@ import Basket from '@/pages/Basket'
 
 Vue.use(Router)
 
-const routes = [
-  {
-    name: 'home',
-    path: '/',
-    component: Home,
-  },
-  {
-    name: 'basket',
-    path: '/basket',
-    component: Basket,
-  },
-]
-
-const router =  new Router({routes})
-
-export default router
+export default new Router({
+  routes: [
+    {
+      name: 'home',
+      path: '/',
+      component: Home,
+    },
+    {
+      name: 'basket',
+      path: '/basket',
+      component: Basket,
+    }
+  ]
+})
