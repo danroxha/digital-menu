@@ -3,7 +3,7 @@
     <Header />
     <Container>
       <section>
-        <Cards />
+        <Card />
         <div v-if='visible'>
           <PopUp />
         </div>
@@ -18,13 +18,13 @@
 <script>
 
 import { mapMutations, mapState } from 'vuex'
-import { Card as Cards, Container, Footer, Header, PopUp, Loading } from '@/components'
+import { Card, Container, Footer, Header, PopUp, Loading } from '@/components'
 
 
 export default {
   
   components: {
-    Cards, Container, Footer, Header, PopUp, Loading
+    Card, Container, Footer, Header, PopUp, Loading
   },
 
   computed: {
