@@ -16,14 +16,18 @@
         <br />
       </div>
       <form>
-        <input min="1" max="10" type="number" name v-model="quantity" />
+        <label>
+          <MinusIcon  @click="removeItem" />
+          <input type="text" disabled v-model="quantity" />
+          <PlusIcon @click="addItem"/>
+        </label>
         <input
-          v-on:click="() => {
+          @click="() => { 
             addItemToBasket({item: data, quantity })
-          }
-          "
+            closePopUp()
+          }"
           type="button"
-          :value="'Adicionar R$ ' + computedPrice(data.preco)"
+          :value="'Adicionar\nR$ ' + computedPrice(data.preco)"
         />
       </form>
     </section>
@@ -32,16 +36,15 @@
 
 <script>
 import { mapMutations, mapState } from 'vuex';
-import { ArrowBackIcon } from '@/icons'
+import { ArrowBackIcon, MinusIcon, PlusIcon } from '@/icons'
 export default {
-  components: { ArrowBackIcon },
+  components: { ArrowBackIcon, MinusIcon, PlusIcon },
   data: () => ({
     quantity: 1,
   }),
 
   computed: {
     ...mapState('popUp', ['data']),
-    
   },
 
   methods: {
@@ -50,6 +53,18 @@ export default {
     
     computedPrice(price) {
       return (parseFloat(price) * this.quantity).toFixed(2)
+    },
+
+    addItem(){
+      const MAXIMUM_QUANTITY = 99
+      if(this.quantity === MAXIMUM_QUANTITY) return
+      this.quantity++;
+    },
+
+    removeItem(){
+      const MINIMUM_QUANTITY = 1
+      if(this.quantity === MINIMUM_QUANTITY) return
+      this.quantity--;
     },
   },
 };
@@ -126,37 +141,56 @@ export default {
 }
 
 .pop-info section form {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: 100%;
-  font-size: 16pt;
   outline: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.pop-info section form input {
+.pop-info section form label {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.pop-info section form label svg {
+  position: absolute;
+  justify-content: center;
+  align-self: center;
+  font-size: 30pt;
+  color: var(--_color_2);
+  cursor: pointer;
+}
+
+.pop-info section form label svg:nth-child(1) {
+  left: 7px;
+}
+.pop-info section form label svg:nth-child(3) {
+  right: 7px;
+}
+
+.pop-info section form  input {
   background: var(--_color_2);
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  font-size: 11pt;
+  font-size: 14pt;
   outline: none;
-  cursor: pointer;
-  overflow-x: auto;
+  font-family: 'Courier New';
+
 }
 
 .pop-info section form input[type="button"] {
   margin-left: 5px;
   color: var(--_color_0);
+  cursor: pointer;
 }
 
-.pop-info section form input[type="number"] {
+.pop-info section form input[type="text"] {
   background: var(--_color_0);
-  text-align: right;
+  text-align: center;
   margin-right: 5px;
-  padding-right: 10px;
 }
 
 @media only screen and (max-width: 450px) {
@@ -170,10 +204,8 @@ export default {
 @media screen and (orientation: landscape) and (max-height: 450px){
   .pop-info {
     height: 100vh;
-    /* max-height: 200px; */
-    /* overflow-x: auto; */
-    /* height: 100%; */
   }
+
   .pop-info section form input {
     font-size: 10pt;
   }
