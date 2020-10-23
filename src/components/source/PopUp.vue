@@ -21,14 +21,13 @@
           <input type="text" disabled v-model="quantity" />
           <PlusIcon @click="addItem"/>
         </label>
-        <input
-          @click="() => { 
+        <button  @click.prevent="() => { 
             addItemToBasket({item: data, quantity })
             closePopUp()
           }"
-          type="button"
-          :value="'Adicionar\nR$ ' + computedPrice(data.preco)"
-        />
+        > 
+          Adicionar<br/>R${{ computedPrice(data.preco)}}
+        </button>
       </form>
     </section>
   </div>
@@ -169,22 +168,29 @@ export default {
 }
 
 .pop-info section form  input {
+  font: 14pt 'Courier New';
+  font-weight: bolder;
   background: var(--_color_2);
   width: 100%;
   padding: 5px 0;
   font-weight: bold;
   border: none;
   border-radius: 5px;
-  font-size: 14pt;
   outline: none;
-  font-family: 'Courier New';
-
 }
 
-.pop-info section form input[type="button"] {
+.pop-info section form button {
+  text-align: center;
+  font: 14pt 'Courier New';
+  font-weight: bolder;
+  outline: none;
+  border: none;
+  border-radius: 5px;
   margin-left: 5px;
   color: var(--_color_0);
+  background-color: var(--_color_2);
   cursor: pointer;
+  padding: 10px 0;
 }
 
 .pop-info section form input[type="text"] {
