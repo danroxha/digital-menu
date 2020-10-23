@@ -15,10 +15,10 @@
     <main>
       <button @click='removeAll'>Limpar</button>
       <ul v-if='volume'>
-        <li v-for='(item, quantity ) in shoppingBasket'  :key='item[0]'>
+        <li v-for='item in shoppingBasket'  :key='item[0]'>
           <h2>{{ item[0] }}</h2>
           <div>
-            {{ quantity }} 
+            {{ item[1].quantity }} 
           </div>
           <TrashIcon />
           <hr />
@@ -63,6 +63,7 @@ export default {
 
   async mounted() {
     await this.loadShoppingBasket()
+    console.log(this.shoppingBasket.get('Calabresa').quantity)
   }
 }
 </script>
