@@ -19,12 +19,15 @@ export default {
 </script>
 <style>
 
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   --_color_0: #ffffff;
   --_color_1: #f9d125;
-  --_color_2: #3ed979;
+  --_color_2: #087607;
   --_color_2_1: #30af61;
   --_color_3: #9a1511;
   --_color_4: #edf1f0;

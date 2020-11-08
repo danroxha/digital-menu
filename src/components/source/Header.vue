@@ -106,14 +106,15 @@ export default {
   justify-content: space-between;
 }
 #header a h1 {
+  font-family: 'Lobster', cursive;
+  font-style: italic;
+  font-size: 3em;  
   display: flex;
   justify-content: center;
   text-align: center;
   width: 100%;
   align-items: center;
-  font-size: 3em;
   color: var(--_color_0);
-  font-style: italic;
 }
 
 #header a img {

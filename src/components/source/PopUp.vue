@@ -8,6 +8,7 @@
       <div>
         <figure>
           <img draggable="false" :src="data.imagem" />
+          <img v-if='data.group == "pizza"' src='https://static.expressodelivery.com.br/imagens/produtos/138004/180/Expresso-Delivery_31ae4e0ddac2ffaa959718b47c4587d7.png'>
         </figure>
         <h3>{{ data.nome }}</h3>
         <span>{{ data.ingredientes.join(",") }}</span>
@@ -124,7 +125,7 @@ export default {
 
 .pop-info section h3 {
   font-size: 18pt;
-  margin: 10px 0;
+  margin: 15px 0;
   display: inline-block;
 }
 
@@ -135,9 +136,23 @@ export default {
 }
 
 .pop-info section figure img {
+  
+  position: relative;
+  z-index: 1;
+
+}
+.pop-info section figure img:nth-child(1) { 
   width: 70%;
   height: 70%;
+} 
+
+
+.pop-info section figure img:nth-child(2) { 
+  position: absolute;
+  width: 73%;
+  z-index: 0;
 }
+
 
 .pop-info section form {
   outline: none;
@@ -170,13 +185,17 @@ export default {
 .pop-info section form  input {
   font: 14pt 'Courier New';
   font-weight: bolder;
-  background: var(--_color_2);
+  color: var(--_color_6);
+  background-color: var(--_color_0);
   width: 100%;
-  padding: 5px 0;
+  padding: 15px 0;
   font-weight: bold;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   outline: none;
+  text-align: center;
+  margin-right: 5px;
+  /*padding: 5px 0;*/
 }
 
 .pop-info section form button {
@@ -185,18 +204,12 @@ export default {
   font-weight: bolder;
   outline: none;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   margin-left: 5px;
   color: var(--_color_0);
   background-color: var(--_color_2);
   cursor: pointer;
-  padding: 10px 0;
-}
-
-.pop-info section form input[type="text"] {
-  background: var(--_color_0);
-  text-align: center;
-  margin-right: 5px;
+  padding: 3px 0;
 }
 
 @media only screen and (max-width: 450px) {

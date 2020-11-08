@@ -65,13 +65,14 @@ export default {
 <style scoped>
 
 .title-group{
-  font-family: 'Cedarville Cursive', cursive;
+  font-family: 'Lobster', cursive;
   font-size: 40pt;
   text-transform: capitalize;
   color: var(--_color_3);
   font-weight: bold;
   margin-left: 20px;
 }
+
 .card-container {
   margin: 0 auto;
   display: flex;
@@ -79,20 +80,20 @@ export default {
 }
 
 .card {
-  max-height: 150px;
-  max-width: 800px;
   background-color: var(--_color_0);
   display: grid;
   grid-template-columns: 20% 65% 15%;
   margin: 10px 5px;
   cursor: pointer;
+  border-radius: 15px;
 
 }
 
 .card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  border-radius: 15px;
 }
 
 .card div:nth-child(2) {
@@ -104,19 +105,30 @@ export default {
 }
 
 .card div:nth-child(2) h3 {
+  font-family: 'Lobster', cursive;
   color: var(--_color_3);
-  font-size: 1.2em;
+  font-size: 1.5em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  direction: ltr;
 }
 
 .card div:nth-child(2) span:nth-child(2) {
-  /* padding-top: 5px; */
   color: var(--_color_5);
+  font-family: 'Nunito', sans-serif;
   font-weight: bold;
-  font-size: 0.9em;
+  font-style: italic;
+  font-size: 1em;
 }
 
 .card div:nth-child(2) span:nth-child(3) {
   color: var(--_color_3);
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: right;
+  margin-right: 10px;
 }
 
 .card a:nth-child(3) {
@@ -135,6 +147,7 @@ export default {
 
 .card a {
   outline: none;
+  border-radius: 15px;
 }
 
 .card a:nth-child(3) span {
@@ -172,6 +185,12 @@ export default {
     color: var(--_color_3);
     font-size: 1.1em;
   }
+
+.card div:nth-child(2) span:nth-child(3) {
+  padding: 10px 0px;
+  font-size: 1.2em;
+
+}
 
 }
 </style>
