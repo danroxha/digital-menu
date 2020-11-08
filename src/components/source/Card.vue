@@ -181,16 +181,15 @@ export default {
 }
 
 @media only screen and (max-width: 320px) {
-  .card div:nth-child(2) h3 {
-    color: var(--_color_3);
+  /*.card div:nth-child(2) h3 {
     font-size: 1.1em;
+  }*/
+
+  .card div:nth-child(2) span:nth-child(3) {
+    padding: 10px 0px;
+    font-size: 1.2em;
+
   }
-
-.card div:nth-child(2) span:nth-child(3) {
-  padding: 10px 0px;
-  font-size: 1.2em;
-
-}
 
 }
 </style>

@@ -8,7 +8,7 @@ export default {
   
     mutations: {
       onMoveScroll: (state, event) => 
-        state.visible = event.target.scrollTop < 110 && state.otherCondicion,
+        state.visible = event.target.scrollTop < 70 && state.otherCondicion,
       changeOtherCondicion: (state, bool) => 
         state.otherCondicion = bool,
       al: (state) => console.log('Chamou ' + state.otherCondicion),

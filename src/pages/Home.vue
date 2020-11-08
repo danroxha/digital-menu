@@ -63,7 +63,6 @@ export default {
   position: relative;
   overflow-y: auto;
   width: 100%;
-  margin-top: 3.5px;
 }
 
 </style>

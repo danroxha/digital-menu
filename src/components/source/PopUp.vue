@@ -7,8 +7,8 @@
     <section>
       <div>
         <figure>
-          <img draggable="false" :src="data.imagem" />
-          <img v-if='data.group == "pizza"' src='https://static.expressodelivery.com.br/imagens/produtos/138004/180/Expresso-Delivery_31ae4e0ddac2ffaa959718b47c4587d7.png'>
+          <img draggable="false" :src="data.imagem" loading="lazy"/>
+          <img v-if='data.group == "pizzas"' src='https://static.expressodelivery.com.br/imagens/produtos/138004/180/Expresso-Delivery_31ae4e0ddac2ffaa959718b47c4587d7.png' loading="lazy" />
         </figure>
         <h3>{{ data.nome }}</h3>
         <span>{{ data.ingredientes.join(",") }}</span>
@@ -139,20 +139,18 @@ export default {
   
   position: relative;
   z-index: 1;
-
 }
+
 .pop-info section figure img:nth-child(1) { 
   width: 70%;
   height: 70%;
 } 
-
 
 .pop-info section figure img:nth-child(2) { 
   position: absolute;
   width: 73%;
   z-index: 0;
 }
-
 
 .pop-info section form {
   outline: none;
@@ -178,6 +176,7 @@ export default {
 .pop-info section form label svg:nth-child(1) {
   left: 7px;
 }
+
 .pop-info section form label svg:nth-child(3) {
   right: 7px;
 }
@@ -195,7 +194,6 @@ export default {
   outline: none;
   text-align: center;
   margin-right: 5px;
-  /*padding: 5px 0;*/
 }
 
 .pop-info section form button {
