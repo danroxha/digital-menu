@@ -41,28 +41,15 @@ export default {
 
 <style scoped>
 
-@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
-
-.title-group{
-  font-family: 'Cedarville Cursive', cursive;
-  font-size: 35pt;
-  text-transform: capitalize;
-  color: var(--_color_3);
-  font-weight: bold;
-  margin-left: 20px;
-}
-
-#container{
+#container {
   display: grid;
   height: 100vh;
   grid-template-rows: .11fr 1fr .15fr;
   box-sizing: border-box;
 }
 
-#container section{
-  position: relative;
+#container section {
   overflow-y: auto;
-  width: 100%;
 }
 
 </style>
