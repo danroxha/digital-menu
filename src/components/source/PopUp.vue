@@ -103,6 +103,7 @@ export default {
 }
 
 .pop-info header {
+  margin-bottom: 20px;
   text-transform: uppercase;
   width: 100%;
   text-align: center;
