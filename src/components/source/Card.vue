@@ -1,8 +1,8 @@
 <template>
   <div class='card-container'>
-    <ul v-for='(key, group) in items' :key='key'>
+    <ul v-for='(key, group) in items' :key='group'>
       <h3 class='title-group' :id='group'>{{ group }}</h3>
-      <li class="card" v-for='item in items[group]' :key='item.nome' :item='item'>
+      <li class="card" v-for='item in items[group]' :key='item.nome + item.id' :item='item'>
         <img @click.prevent="openPopUp(item)" :src="item.imagem" loading="lazy" />
         <div @click.prevent="openPopUp(item)">
           <h3>{{ item.nome }}</h3>
