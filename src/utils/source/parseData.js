@@ -1,17 +1,18 @@
-import { toJSON } from '../index.js'
-
-export default function parseData({feed}){
-  return feed.entry
-    .map(value => toJSON(
-      value.content.$t
-        .replace(/:\s?/ig, '|')
-        .split(/,\s/ig)
-        .map(value => value.split('|')).flat()
-      )
-    )
-    .map(value => ({
-      ...value,
-      ingredientes: value.ingredientes.split(';'),
-      imagem: `https://${value.imagem}` 
-    })) 
+/**
+ *
+ * @param {JSON} table JSON from Google SpreadSheet
+ * @returns JSON clean
+ */
+export default function parseData({table}) {
+  return table.rows.map(row => [
+      ...table.cols.map((col, index) => ({ [col.label]: row.c[index].v,}))
+    ]
+  )
+  .map(data => 
+    data.reduce((acc, value) =>  ({...acc, ...value}), {})
+  )
+  .map(tuple => ({
+    ...tuple,
+    ingredientes: tuple.ingredientes.replace(/\s+/ig, '').split(";")
+  }));
 }
