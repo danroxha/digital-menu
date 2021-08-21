@@ -11,7 +11,7 @@
           <img v-if='data.group == "pizzas"' src='https://static.expressodelivery.com.br/imagens/produtos/138004/180/Expresso-Delivery_31ae4e0ddac2ffaa959718b47c4587d7.png' loading="lazy" />
         </figure>
         <h3>{{ data.nome }}</h3>
-        <span>{{ data.ingredientes.join(",") }}</span>
+        <span>{{ data.ingredientes.join(", ") }}</span>
         <br />
         <span class="price">R$ {{ data.preco }}</span>
         <br />
