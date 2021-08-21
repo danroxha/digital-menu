@@ -3,11 +3,30 @@
 ![Last commit](https://img.shields.io/github/last-commit/dannRocha/digital-menu)
 ![Dev](https://img.shields.io/badge/daniel%20rocha-dev-green)
 
-# digital-menu
-Um simples cardápio digital.
+# Digital Menu
+Cardápio online de fácil gerenciamento. Aplicação web para apresentar um cardápio de lanchonete de forma online e com redirecionamento dos pedidos para Whatsapp. O cardápio é gerenciado por uma planilha (Google Sheets), na qual mudanças na planilha refletem nos dados do cardápio.
 
 
-[Dados do cardápio no Google SpreadSheet](https://docs.google.com/spreadsheets/d/1Hrhw7xC5NFxNyblD7aZ7afD1DFzHlSsQidav0e6Hshw/edit?usp=sharing)
+Cardápio: [Google SpreadSheet](https://docs.google.com/spreadsheets/d/1Hrhw7xC5NFxNyblD7aZ7afD1DFzHlSsQidav0e6Hshw/edit?usp=sharing)
+
+Página: https://pizzariacolosso.github.io/digital-menu/
+
+## Screenshot
+
+<p align="center" display="flex">
+  <img width="300px" src="screenshot/pagina-inicial-1.png" />
+  <img width="300px" src="screenshot/popup-item-1.png" />
+  <img width="300px" src="screenshot/pagina-inicial-2.png" />
+</p>
+
+<p align="center" display="flex">
+  <img width="300px" src="screenshot/mobile-inical-2.png" />
+  <img width="300px" src="screenshot/popup-item-2.png" />
+  <img width="300px" src="screenshot/mobile-inicial-1.png" />
+</p>
+
+##  Observação
+Como não é usado uma API personalizada para aplicação, os dados do cardápio podem se torna inacessível caso o google remova ou altere a URL de obtenção dos dados.
 
 ## Project setup
 
