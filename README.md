@@ -14,15 +14,15 @@ Página: https://pizzariacolosso.github.io/digital-menu/
 ## Screenshot
 
 <p align="center" display="flex">
-  <img width="300px" src="screenshot/pagina-1.png" />
-  <img width="300px" src="screenshot/popup-1.png" />
-  <img width="300px" src="screenshot/pagina-2.png" />
+  <img width="200px" src="screenshot/pagina-1.png" />
+  <img width="200px" src="screenshot/popup-1.png" />
+  <img width="200px" src="screenshot/pagina-2.png" />
 </p>
 
 <p align="center" display="flex">
-  <img width="300px" src="screenshot/mobile-2.png" />
-  <img width="300px" src="screenshot/popup-2.png" />
-  <img width="300px" src="screenshot/mobile-1.png" />
+  <img width="200px" src="screenshot/mobile-2.png" />
+  <img width="200px" src="screenshot/popup-2.png" />
+  <img width="200px" src="screenshot/mobile-1.png" />
 </p>
 
 ##  Observação
