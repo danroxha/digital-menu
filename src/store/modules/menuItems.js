@@ -15,10 +15,11 @@ export default {
     async ['loadData']({state}){
 
       const id = '1Hrhw7xC5NFxNyblD7aZ7afD1DFzHlSsQidav0e6Hshw'
-      const url = `https://spreadsheets.google.com/feeds/list/${id}/1/public/basic?alt=json`
+      const url = `https://docs.google.com/spreadsheets/d/${id}/gviz/tq?tqx=out:json`
       
       state.items = await fetch(url)
-        .then(async request => joinInGroups(parseData(await request.json())))
+        .then(res => res.text()).then(text => JSON.parse(text.substr(47).slice(0, -2)))
+        .then(json => joinInGroups(parseData(json)))
 
       state.isEmpty = !!state.items.length
     },
