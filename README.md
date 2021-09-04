@@ -29,29 +29,11 @@ Página: https://pizzariacolosso.github.io/digital-menu/
 Como não é usado uma API personalizada para aplicação, os dados do cardápio podem se torna inacessível caso o google remova ou altere a URL de obtenção dos dados.
 
 ## Project setup
+* :pushpin: *![docker@20.10.8](https://img.shields.io/badge/Docker@20.10.8-%230077B6.svg?&style=flat-square&logo=docker&logoColor=white&color=384d54&labelColor=0db7ed)*
+* :pushpin: *![docker-compose@1.29.2](https://img.shields.io/badge/Docker-Compose@1.29.2-%230077B6.svg?&style=flat-square&logo=docker&logoColor=white&color=384d54&labelColor=0db7ed)*
+
+### Run
 
 ```
-npm install
+docker-compose up --build
 ```
-
-### Compiles and hot-reloads for development
-
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-
-```
-npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
-```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
