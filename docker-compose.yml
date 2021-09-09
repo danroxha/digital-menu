@@ -3,16 +3,11 @@ services:
   develop:
     image: 'node:16.8-alpine3.11'
     container_name: digital-menu-app
-    # restart: always
-    working_dir: /digital-menu
-    build:
-        context: .
-        dockerfile: Dockerfile
+    restart: always
+    working_dir: /home/digitalmenu/app
     ports:
       - 8080:8080
     volumes:
-      - .:/digital-menu
-      - nodemodules:/digital-menu/node_modules
-    command: "npm run serve"
-volumes:
-  nodemodules: {}
+      - .:/home/digitalmenu/app
+      - ./node_modules:/home/digitalmenu/app/node_modules
+    command: "sh -c 'npm install && npm run serve'"
